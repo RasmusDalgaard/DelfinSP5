@@ -17,6 +17,15 @@ public class Member {
         this.competetive = competetive;
     }
 
+    public Member() {
+        this.memberID = memberID;
+        this.memberName = memberName;
+        this.age = age;
+        this.membershipStatus = membershipStatus;
+        this.membershipPrice = membershipPrice;
+        this.competetive = competetive;
+    }
+
     public int getMemberID() {
         return memberID;
     }
@@ -50,6 +59,17 @@ public class Member {
     }
 
     public double getMembershipPrice() {
+        if (!membershipStatus) {
+            membershipPrice = 500;
+        } else if (membershipStatus && age > 6 && age < 18) {
+            membershipPrice = 1000;
+        } else if (membershipStatus && age >= 18 && age < 60) {
+            membershipPrice = 1600;
+        } else if (membershipStatus && age >= 60) {
+            membershipPrice = 1600 * 0.75;
+        } else {
+            membershipPrice = 0; // Exception handling if age < 6.
+        }
         return membershipPrice;
     }
 
