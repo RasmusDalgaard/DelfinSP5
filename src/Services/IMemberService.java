@@ -10,9 +10,17 @@ public interface IMemberService {
 
     public List<Member> getAllMembers();
 
+    public List<Member> getAllCompetitiveJuniors();
+
+    public List<Member> getAllCompetitiveSeniors();
+
     public Member getMemberByID(int id);
 
     public void showAllMembers();
+
+    public void showJuniorMembers();
+
+    public void showSeniorMembers();
 
 
 }

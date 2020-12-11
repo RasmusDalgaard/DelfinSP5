@@ -24,6 +24,15 @@ public class UI implements IUI {
         System.out.println("4) Go back");
     }
 
+    public void showCoachMenu() {
+        System.out.println("1) Show Junior team");
+        System.out.println("2) Show Senior team");
+        System.out.println("3) Show all results");
+        System.out.println("4) Show top 5 Junior");
+        System.out.println("5) Show top 5 Senior");
+        System.out.println("6) Go back");
+    }
+
     //MemberService
     public String setMemberName() {
         String name = "";

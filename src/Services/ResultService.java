@@ -11,12 +11,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResultService {
+public class ResultService implements IResultService {
     DBConnector dbc = new DBConnector();
     IMemberService ms = new MemberService();
     List<Member> memberList;
 
-    public ResultService () {
+    public ResultService() {
         memberList = ms.getAllMembers();
     }
 
@@ -39,12 +39,11 @@ public class ResultService {
                 int memberID = res.getInt(2);
                 String compName = res.getString(3);
                 String compDate = res.getString(4);
-                int placement = res.getInt(5);
-                int time = res.getInt(6);
-                String discipline = res.getString(7);
+                int time = res.getInt(5);
+                String discipline = res.getString(6);
                 Member member = ms.getMemberByID(memberID);
 
-                tmpResult = new Result(resultID, member, compName, compDate, placement, time, discipline);
+                tmpResult = new Result(resultID, member, compName, compDate, time, discipline);
                 results.add(tmpResult);
             }
         } catch (SQLException e) {
@@ -61,5 +60,11 @@ public class ResultService {
             }
         }
         return result;
+    }
+
+    public void showAllResults() {
+        for (Result res : getAllResults()) {
+            System.out.println(res);
+        }
     }
 }

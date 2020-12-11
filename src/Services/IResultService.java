@@ -10,4 +10,6 @@ public interface IResultService {
 
     public Result getResultByID(int id);
 
+    public void showAllResults();
+
 }

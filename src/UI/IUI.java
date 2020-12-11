@@ -6,6 +6,8 @@ public interface IUI {
 
     public void showAdminMenu();
 
+    public void showCoachMenu();
+
     public String setMemberName();
 
     public int setMemberAge();

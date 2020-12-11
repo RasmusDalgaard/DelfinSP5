@@ -81,9 +81,29 @@ public class MemberService implements IMemberService {
         return members;
     }
 
+    public List<Member> getAllCompetitiveJuniors() {
+        List<Member> juniorMembers = new ArrayList<>();
+        for (Member m : getAllMembers()) {
+            if (m.getAge() < 18 && m.isCompetetive()) {
+                juniorMembers.add(m);
+            }
+        }
+        return juniorMembers;
+    }
+
+    public List<Member> getAllCompetitiveSeniors() {
+        List<Member> seniorMembers = new ArrayList<>();
+        for (Member m : getAllMembers()) {
+            if (m.getAge() >= 18 && m.getAge() < 60 && m.isCompetetive()) {
+                seniorMembers.add(m);
+            }
+        }
+        return seniorMembers;
+    }
+
     public Member getMemberByID(int id) {
         Member member = null;
-        for (Member m: getAllMembers()) {
+        for (Member m : getAllMembers()) {
             if (m.getMemberID() == id) {
                 return m;
             }
@@ -97,4 +117,16 @@ public class MemberService implements IMemberService {
         }
     }
 
+    public void showJuniorMembers() {
+        for (Member m : getAllCompetitiveJuniors()) {
+            System.out.println(m);
+        }
+    }
+
+    public void showSeniorMembers() {
+        for (Member m : getAllCompetitiveSeniors()) {
+            System.out.println(m);
+
+        }
+    }
 }

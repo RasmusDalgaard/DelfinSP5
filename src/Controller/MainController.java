@@ -7,6 +7,7 @@ import UI.*;
 public class MainController {
     Scanner sc = new Scanner(System.in);
     AdminController ac = new AdminController();
+    CoachController cc = new CoachController();
     IUI ui = new UI();
     int choice = 0;
 
@@ -17,6 +18,9 @@ public class MainController {
             switch (choice) {
                 case 1:
                     ac.runAdminMenu();
+                    break;
+                case 2:
+                    cc.runCoachMenu();
                     break;
                 default:
                     ui.printExitMessage();

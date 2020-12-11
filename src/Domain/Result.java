@@ -5,16 +5,14 @@ public class Result {
     private String compName;
     private String compDate;
     private Member member;
-    private int placement;
     private int time;
     private String discipline;
 
-    public Result(int resultID, Member member, String compName, String compDate, int placement, int time, String discipline) {
+    public Result(int resultID, Member member, String compName, String compDate, int time, String discipline) {
         this.resultID = resultID;
         this.member = member;
         this.compName = compName;
         this.compDate = compDate;
-        this.placement = placement;
         this.time = time;
         this.discipline = discipline;
     }
@@ -49,14 +47,6 @@ public class Result {
 
     public void setMember(Member member) {
         this.member = member;
-    }
-
-    public int getPlacement() {
-        return placement;
-    }
-
-    public void setPlacement(int placement) {
-        this.placement = placement;
     }
 
     public int getTime() {
