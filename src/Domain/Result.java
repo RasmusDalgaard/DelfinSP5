@@ -7,14 +7,16 @@ public class Result {
     private Member member;
     private int placement;
     private int time;
+    private String discipline;
 
-    public Result(int resultID, String compName, String compDate, Member member, int placement, int time) {
+    public Result(int resultID, Member member, String compName, String compDate, int placement, int time, String discipline) {
         this.resultID = resultID;
+        this.member = member;
         this.compName = compName;
         this.compDate = compDate;
-        this.member = member;
         this.placement = placement;
         this.time = time;
+        this.discipline = discipline;
     }
 
     public int getResultID() {
@@ -63,5 +65,13 @@ public class Result {
 
     public void setTime(int time) {
         this.time = time;
+    }
+
+    public String getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(String discipline) {
+        this.discipline = discipline;
     }
 }

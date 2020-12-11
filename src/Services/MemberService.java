@@ -81,6 +81,16 @@ public class MemberService implements IMemberService {
         return members;
     }
 
+    public Member getMemberByID(int id) {
+        Member member = null;
+        for (Member m: getAllMembers()) {
+            if (m.getMemberID() == id) {
+                return m;
+            }
+        }
+        return member;
+    }
+
     public void showAllMembers() {
         for (Member m : getAllMembers()) {
             System.out.println(m);

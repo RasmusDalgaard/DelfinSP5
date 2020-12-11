@@ -10,6 +10,9 @@ public interface IMemberService {
 
     public List<Member> getAllMembers();
 
+    public Member getMemberByID(int id);
+
     public void showAllMembers();
+
 
 }
