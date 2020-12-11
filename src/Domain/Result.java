@@ -17,6 +17,17 @@ public class Result {
         this.discipline = discipline;
     }
 
+    public Result(int resultID, Member member, String memberName, int memberAge, String compName, String compDate, int time, String discipline) {
+        this.resultID = resultID;
+        this.member = member;
+        memberName = member.getMemberName();
+        memberAge = member.getAge();
+        this.compName = compName;
+        this.compDate = compDate;
+        this.time = time;
+        this.discipline = discipline;
+    }
+
     public int getResultID() {
         return resultID;
     }
@@ -63,5 +74,11 @@ public class Result {
 
     public void setDiscipline(String discipline) {
         this.discipline = discipline;
+    }
+
+    @Override
+    //int resultID, Member member, String compName, String compDate, int time, String discipline
+    public String toString() {
+        return resultID + " " + member.getMemberName() + ", " + compName + ", " + compDate + ", " + time + ", " + discipline;
     }
 }

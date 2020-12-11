@@ -29,7 +29,6 @@ public class ResultService implements IResultService {
         String sql = "";
         Result tmpResult = null;
         connection = dbc.getMyConnection();
-
         try {
             stmt = connection.createStatement();
             sql = "SELECT * FROM results";
@@ -52,6 +51,81 @@ public class ResultService implements IResultService {
         return results;
     }
 
+    public List<Result> getTopFiveJuniorCrawl() {
+        List<Result> juniorTopFiveResultsCrawl = new ArrayList<>();
+
+        Connection connection = null;
+        Statement stmt = null;
+        ResultSet res = null;
+        String sql = "";
+        Result tmpResult = null;
+        connection = dbc.getMyConnection();
+        try {
+            stmt = connection.createStatement();
+            sql = "SELECT r.resultID, r.memberID, m.memberName, m.age, r.compName, r.competitionDate, r.timeRes, r.discipline \n" +
+                    "FROM results r, members m\n" +
+                    "WHERE r.memberID = m.memberID\n" +
+                    "AND age < 18\n" +
+                    "ORDER BY timeRes\n" +
+                    "LIMIT 5;";
+            res = stmt.executeQuery(sql);
+            while (res.next()) {
+                int resultID = res.getInt(1);
+                int memberID = res.getInt(2);
+                String memberName = res.getString(3);
+                int memberAge = res.getInt(4);
+                String compName = res.getString(5);
+                String compDate = res.getString(6);
+                int time = res.getInt(7);
+                String discipline = res.getString(8);
+                Member member = ms.getMemberByID(memberID);
+                tmpResult = new Result(resultID, member, memberName, memberAge, compName, compDate, time, discipline);
+                juniorTopFiveResultsCrawl.add(tmpResult);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return juniorTopFiveResultsCrawl;
+    }
+
+    public List<Result> getTopFiveSeniorCrawl() {
+        List<Result> seniorTopFiveResultsCrawl = new ArrayList<>();
+
+        Connection connection = null;
+        Statement stmt = null;
+        ResultSet res = null;
+        String sql = "";
+        Result tmpResult = null;
+        connection = dbc.getMyConnection();
+        try {
+            stmt = connection.createStatement();
+            sql = "SELECT r.resultID, r.memberID, m.memberName, m.age, r.compName, r.competitionDate, r.timeRes, r.discipline \n" +
+                    "FROM results r, members m\n" +
+                    "WHERE r.memberID = m.memberID\n" +
+                    "AND age >= 18\n" +
+                    "ORDER BY timeRes\n" +
+                    "LIMIT 5;";
+            res = stmt.executeQuery(sql);
+            while (res.next()) {
+                int resultID = res.getInt(1);
+                int memberID = res.getInt(2);
+                String memberName = res.getString(3);
+                int memberAge = res.getInt(4);
+                String compName = res.getString(5);
+                String compDate = res.getString(6);
+                int time = res.getInt(7);
+                String discipline = res.getString(8);
+                Member member = ms.getMemberByID(memberID);
+                tmpResult = new Result(resultID, member, memberName, memberAge, compName, compDate, time, discipline);
+                seniorTopFiveResultsCrawl.add(tmpResult);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return seniorTopFiveResultsCrawl;
+    }
+
     public Result getResultByID(int id) {
         Result result = null;
         for (Result res : getAllResults()) {
@@ -64,6 +138,18 @@ public class ResultService implements IResultService {
 
     public void showAllResults() {
         for (Result res : getAllResults()) {
+            System.out.println(res);
+        }
+    }
+
+    public void showTopFiveJuniorResultsCrawl() {
+        for (Result res : getTopFiveJuniorCrawl()) {
+            System.out.println(res);
+        }
+    }
+
+    public void showTopFiveSeniorResultsCrawl() {
+        for (Result res : getTopFiveSeniorCrawl()) {
             System.out.println(res);
         }
     }

@@ -32,6 +32,15 @@ public class CoachController {
                 case 3:
                     rs.showAllResults();
                     System.out.println("\n");
+                    break;
+                case 4:
+                    rs.showTopFiveJuniorResultsCrawl();
+                    System.out.println("\n");
+                    break;
+                case 5:
+                    rs.showTopFiveSeniorResultsCrawl();
+                    System.out.println("\n");
+                    break;
                 case 6:
                     ui.showUserMenu();
                     choice = 9;

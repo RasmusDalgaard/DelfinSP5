@@ -84,4 +84,10 @@ public class Member {
     public void setCompetetive(boolean competetive) {
         this.competetive = competetive;
     }
+
+    //(int memberID, String memberName, int age, boolean membershipStatus, double membershipPrice, boolean competetive)
+    @Override
+    public String toString() {
+        return memberID + ", " + memberName + ", " + age + ", Is active: " + membershipStatus + ", " + membershipPrice + ", Competition Member: " + competetive;
+    }
 }
