@@ -23,7 +23,8 @@ discipline varchar(255) not null
 
 /* Insert statements */
 INSERT INTO members (memberID,memberName,age,membershipStatus,price,competitive) VALUES (?,?,?,?,?,?);
-INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUES (1,"LuffeCup",now(),82000,"Crawl"),
+INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUES
+(1,"LuffeCup",now(),82000,"Crawl"),
 (2,"LuffeCup",now(),110000,"Crawl"),
 (3,"LuffeCup",now(),93000,"Crawl"),
 (4,"LuffeCup",now(),105000,"Crawl"),
@@ -32,7 +33,8 @@ INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUE
 (7,"LuffeCup",now(),82500,"Crawl"),
 (8,"LuffeCup",now(),85750,"Crawl"),
 (9,"LuffeCup",now(),79850,"Crawl"),
-(10,"LuffeCup",now(),85000,"Crawl");
+(10,"LuffeCup",now(),85000,"Crawl"),
+(11,"LuffeCup",now(),97000,"Crawl");
 
 /*Select Statements */
 SELECT * FROM members;
@@ -44,10 +46,12 @@ SELECT r.resultID, r.memberID, m.memberName, m.age, r.compName, r.competitionDat
 FROM results r, members m
 WHERE r.memberID = m.memberID
 AND age < 18
-ORDER BY timeRes;
+ORDER BY timeRes
+LIMIT 5;
 /* Senior results */
 SELECT r.resultID, r.memberID, m.memberName, m.age, r.compName, r.competitionDate, r.timeRes, r.discipline 
 FROM results r, members m
 WHERE r.memberID = m.memberID
 AND age >= 18
-ORDER BY timeRes;
+ORDER BY timeRes
+LIMIT 5;
