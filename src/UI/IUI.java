@@ -18,4 +18,6 @@ public interface IUI {
 
     public void printExitMessage();
 
+    public String addWordWithSpacing(String word, int length);
+
 }

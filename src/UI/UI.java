@@ -87,6 +87,13 @@ public class UI implements IUI {
         return competitionStatus;
     }
 
+    public String addWordWithSpacing(String word, int length) {
+        String spacing = " ";
+        spacing = spacing.repeat(length - word.length());
+        word = word + spacing;
+        return  word;
+    }
+
     public void printExitMessage() {
         System.out.println("Exiting..");
     }
