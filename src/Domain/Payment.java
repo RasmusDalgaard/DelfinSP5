@@ -53,6 +53,11 @@ public class Payment {
 
     @Override
     public String toString() {
-        return member.getMemberID() + ", " + member.getMemberName() + ", " + member.getMembershipPrice();
+        String membID = ui.addWordWithSpacing(Integer.toString(member.getMemberID()), 25);
+        String membName = ui.addWordWithSpacing(memberName, 25);
+        String paid  = ui.addWordWithSpacing(Boolean.toString(hasPaid), 25);
+        String membDebt = ui.addWordWithSpacing(Double.toString(memberDebt), 25);
+
+        return "Member ID: " + membID + "Member name: " + membName + "Debt: " + membDebt;
     }
 }

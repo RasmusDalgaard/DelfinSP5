@@ -1,9 +1,12 @@
 package Domain;
 
+import UI.*;
+
 public class Coach {
     private int coachID;
     private String coachName;
     private String team;
+    private IUI ui = new UI();
 
     public Coach(int coachID, String coachName, String team) {
         this.coachID = coachID;
@@ -37,6 +40,10 @@ public class Coach {
 
     @Override
     public String toString() {
-        return coachName;
+        String ID = ui.addWordWithSpacing(Integer.toString(coachID), 25);
+        String name = ui.addWordWithSpacing(coachName, 25);
+        String teamName = ui.addWordWithSpacing(team, 25);
+
+        return "Coach ID: " + ID + "Name: " + name + "Team: " + teamName;
     }
 }
