@@ -1,5 +1,7 @@
 package Domain;
 
+import UI.*;
+
 public class Result {
     private int resultID;
     private String compName;
@@ -7,6 +9,7 @@ public class Result {
     private Member member;
     private int time;
     private String discipline;
+    IUI ui = new UI();
 
     public Result(int resultID, Member member, String compName, String compDate, int time, String discipline) {
         this.resultID = resultID;
@@ -79,6 +82,11 @@ public class Result {
     @Override
     //int resultID, Member member, String compName, String compDate, int time, String discipline
     public String toString() {
-        return resultID + " " + member.getMemberName() + ", " + compName + ", " + compDate + ", " + time + ", " + discipline;
+        String resID = ui.addWordWithSpacing(Integer.toString(resultID), 25);
+        String memberName = ui.addWordWithSpacing(member.getMemberName(), 25);
+        String competitionName = ui.addWordWithSpacing(compName, 25);
+        String resTime = ui.addWordWithSpacing(Integer.toString(time), 25);
+        String disci = ui.addWordWithSpacing(discipline, 25);
+        return "Result ID: " + resID + "Member name: " + memberName + "Competition name: " + competitionName + "Time: " + resTime + "Discipline: " + disci;
     }
 }
