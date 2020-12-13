@@ -11,15 +11,14 @@ import java.util.List;
 public class PaymentService implements IPaymentService {
     IDBConnector dbc = new DBConnector();
     IMemberService ms = new MemberService();
-    List<Payment> missingPayments;
     List<Member> memberList;
 
     public PaymentService() {
-        missingPayments = new ArrayList<>();
         memberList = ms.getAllMembers();
     }
 
     public List<Payment> getMemberDebt() {
+        List<Payment> missingPayments = new ArrayList<>();
         Connection connection = null;
         Statement stmt = null;
         ResultSet res = null;

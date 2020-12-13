@@ -27,6 +27,13 @@ memberID int not null,
 hasPaid boolean default false
 );
 
+drop table coaches;
+create table coaches(
+coachID int not null primary key auto_increment,
+coachName varchar(255) not null,
+team varchar(255) default null
+);
+
 /* Insert statements */
 INSERT INTO members (memberID,memberName,age,membershipStatus,price,competitive) VALUES (?,?,?,?,?,?);
 INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUES
@@ -52,12 +59,17 @@ INSERT INTO payment (memberID,hasPaid) VALUES
 (8,true),
 (9,true),
 (10,true),
-(11,false);
+(11,false),
+(12,false);
+INSERT INTO coaches(coachName,team) VALUES
+("Jonathan Baywatch","Junior"),
+("David Hasselhoff","Senior");
 
 /*Select Statements */
 SELECT * FROM members;
 SELECT * FROM results;
 SELECT * FROM payment;
+SELECT * FROM coaches;
 SELECT * FROM members WHERE age < 18 AND competitive = true;
 SELECT * FROM members WHERE age >= 18 AND competitive = true;
 /* Junior results */

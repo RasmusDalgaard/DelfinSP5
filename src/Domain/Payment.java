@@ -1,7 +1,6 @@
 package Domain;
 
-import Services.IMemberService;
-import Services.MemberService;
+import UI.*;
 
 import java.util.List;
 
@@ -10,6 +9,7 @@ public class Payment {
     private String memberName;
     private boolean hasPaid;
     private double memberDebt;
+    IUI ui = new UI();
 
 
     public Payment(Member member, String memberName, boolean hasPaid, double memberDebt) {
@@ -53,6 +53,6 @@ public class Payment {
 
     @Override
     public String toString() {
-        return member.getMemberID() + ", " + member.getMemberName() + ", " + hasPaid + ", " + member.getMembershipPrice();
+        return member.getMemberID() + ", " + member.getMemberName() + ", " + member.getMembershipPrice();
     }
 }

@@ -21,6 +21,7 @@ public class UI implements IUI {
     public void showAdminMenu() {
         System.out.println("1) Add member");
         System.out.println("2) Show members");
+        System.out.println("3) Show coaches");
         System.out.println("4) Go back");
     }
 

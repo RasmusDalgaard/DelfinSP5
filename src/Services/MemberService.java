@@ -126,7 +126,6 @@ public class MemberService implements IMemberService {
     public void showSeniorMembers() {
         for (Member m : getAllCompetitiveSeniors()) {
             System.out.println(m);
-
         }
     }
 }
