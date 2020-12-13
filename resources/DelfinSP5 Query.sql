@@ -21,6 +21,12 @@ timeRes int not null,
 discipline varchar(255) not null
 );
 
+drop table payment;
+create table payment(
+memberID int not null,
+hasPaid boolean default false
+);
+
 /* Insert statements */
 INSERT INTO members (memberID,memberName,age,membershipStatus,price,competitive) VALUES (?,?,?,?,?,?);
 INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUES
@@ -35,10 +41,23 @@ INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUE
 (9,"LuffeCup",now(),79850,"Crawl"),
 (10,"LuffeCup",now(),85000,"Crawl"),
 (11,"LuffeCup",now(),97000,"Crawl");
+INSERT INTO payment (memberID,hasPaid) VALUES
+(1,true),
+(2,false),
+(3,true),
+(4,true),
+(5,false),
+(6,false),
+(7,true),
+(8,true),
+(9,true),
+(10,true),
+(11,false);
 
 /*Select Statements */
 SELECT * FROM members;
 SELECT * FROM results;
+SELECT * FROM payment;
 SELECT * FROM members WHERE age < 18 AND competitive = true;
 SELECT * FROM members WHERE age >= 18 AND competitive = true;
 /* Junior results */
@@ -55,3 +74,9 @@ WHERE r.memberID = m.memberID
 AND age >= 18
 ORDER BY timeRes
 LIMIT 5;
+/* Missing payments */
+SELECT p.memberID, m.memberName, p.hasPaid, m.price
+FROM payment p, members m
+WHERE p.memberID = m.memberID
+AND p.hasPaid = false
+order BY memberID;

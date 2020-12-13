@@ -33,6 +33,11 @@ public class UI implements IUI {
         System.out.println("6) Go back");
     }
 
+    public void showCashierMenu() {
+        System.out.println("1) Show member debt");
+        System.out.println("4) Go back");
+    }
+
     //MemberService
     public String setMemberName() {
         String name = "";

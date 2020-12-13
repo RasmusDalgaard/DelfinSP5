@@ -8,6 +8,7 @@ public class MainController {
     Scanner sc = new Scanner(System.in);
     AdminController ac = new AdminController();
     CoachController cc = new CoachController();
+    CashierController csc = new CashierController();
     IUI ui = new UI();
     int choice = 0;
 
@@ -21,6 +22,9 @@ public class MainController {
                     break;
                 case 2:
                     cc.runCoachMenu();
+                    break;
+                case 3:
+                    csc.runCashierMenu();
                     break;
                 default:
                     ui.printExitMessage();

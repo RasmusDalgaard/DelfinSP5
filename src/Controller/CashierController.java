@@ -1,27 +1,25 @@
 package Controller;
 
 import Services.IMemberService;
-import Services.MemberService;
+import Services.IPaymentService;
+import Services.PaymentService;
 import UI.*;
 
 import java.util.Scanner;
 
-public class AdminController {
+public class CashierController {
     IUI ui = new UI();
-    IMemberService ms = new MemberService();
+    IPaymentService ps = new PaymentService();
     Scanner sc = new Scanner(System.in);
     int choice = 0;
 
-    public void runAdminMenu() {
+    public void runCashierMenu() {
         while (choice != 9) {
-            ui.showAdminMenu();
+            ui.showCashierMenu();
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    ms.addMember();
-                    break;
-                case 2:
-                    ms.showAllMembers();
+                    ps.showMemberDebt();
                     System.out.println("\n");
                     break;
                 case 4:
@@ -34,4 +32,5 @@ public class AdminController {
             }
         }
     }
+
 }

@@ -8,6 +8,8 @@ public interface IUI {
 
     public void showCoachMenu();
 
+    public void showCashierMenu();
+
     public String setMemberName();
 
     public int setMemberAge();
