@@ -55,7 +55,7 @@ public class ResultService implements IResultService {
         return results;
     }
 
-    public List<Result> getTopResultsByDiscipline(String discipline) {
+    public List<Result> getTopJuniorResultsByDiscipline(String discipline) {
         List<Result> allResults = getAllResults();
         List<Result> juniorDiscipline = new ArrayList<>();
         for (Result res : allResults) {
@@ -85,7 +85,7 @@ public class ResultService implements IResultService {
 
     public void showTopFiveByDiscipline(String input) {
         input = sc.nextLine();
-        for (Result res : getTopResultsByDiscipline(input)) {
+        for (Result res : getTopJuniorResultsByDiscipline(input)) {
             System.out.println(res);
         }
     }

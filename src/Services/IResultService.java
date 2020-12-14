@@ -12,7 +12,7 @@ public interface IResultService {
 
     public void showAllResults();
 
-    public List<Result> getTopResultsByDiscipline(String discipline);
+    public List<Result> getTopJuniorResultsByDiscipline(String discipline);
 
     public void showTopFiveByDiscipline(String input);
 }
