@@ -63,6 +63,7 @@ public class ResultService implements IResultService {
                 juniorDiscipline.add(res);
             }
         }
+        Collections.sort(juniorDiscipline);
         return juniorDiscipline;
     }
 
@@ -74,6 +75,7 @@ public class ResultService implements IResultService {
                 seniorDiscipline.add(res);
             }
         }
+        Collections.sort(seniorDiscipline);
         return seniorDiscipline;
     }
 
@@ -100,6 +102,7 @@ public class ResultService implements IResultService {
             System.out.println(res);
         }
     }
+
     public void showTopFiveSeniorByDiscipline(String input) {
         input = sc.nextLine();
         for (Result res : getTopSeniorResultsByDiscipline(input)) {

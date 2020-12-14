@@ -2,7 +2,7 @@ package Domain;
 
 import UI.*;
 
-public class Result {
+public class Result implements Comparable<Result> {
     private int resultID;
     private String compName;
     private String compDate;
@@ -88,5 +88,10 @@ public class Result {
         String resTime = ui.addWordWithSpacing(Integer.toString(time), 25);
         String disci = ui.addWordWithSpacing(discipline, 25);
         return "Result ID: " + resID + "Member name: " + memberName + "Competition name: " + competitionName + "Time: " + resTime + "Discipline: " + disci;
+    }
+
+    @Override
+    public int compareTo(Result o) {
+        return this.time-o.getTime();
     }
 }
