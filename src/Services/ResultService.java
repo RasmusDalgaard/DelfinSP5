@@ -66,6 +66,17 @@ public class ResultService implements IResultService {
         return juniorDiscipline;
     }
 
+    public List<Result> getTopSeniorResultsByDiscipline(String discipline) {
+        List<Result> allResults = getAllResults();
+        List<Result> seniorDiscipline = new ArrayList<>();
+        for (Result res : allResults) {
+            if (res.getDiscipline().equals(discipline) && res.getMember().getAge() >= 18 && res.getMember().getAge() < 60) {
+                seniorDiscipline.add(res);
+            }
+        }
+        return seniorDiscipline;
+    }
+
 
     public Result getResultByID(int id) {
         Result result = null;
@@ -83,9 +94,15 @@ public class ResultService implements IResultService {
         }
     }
 
-    public void showTopFiveByDiscipline(String input) {
+    public void showTopFiveJuniorByDiscipline(String input) {
         input = sc.nextLine();
         for (Result res : getTopJuniorResultsByDiscipline(input)) {
+            System.out.println(res);
+        }
+    }
+    public void showTopFiveSeniorByDiscipline(String input) {
+        input = sc.nextLine();
+        for (Result res : getTopSeniorResultsByDiscipline(input)) {
             System.out.println(res);
         }
     }

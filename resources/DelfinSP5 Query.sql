@@ -68,7 +68,6 @@ INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUE
 (11,"LuffeCup",now(),97700,"Backcrawl"),
 (1,"LuffeCup",now(),150000,"Breaststroke"),
 (3,"LuffeCup",now(),163000,"Breaststroke"),
-(4,"LuffeCup",now(),125000,"Breaststroke"),
 (5,"LuffeCup",now(),145000,"Breaststroke"),
 (7,"LuffeCup",now(),148500,"Breaststroke"),
 (8,"LuffeCup",now(),142000,"Breaststroke"),
@@ -86,8 +85,7 @@ INSERT INTO payment (memberID,hasPaid) VALUES
 (8,true),
 (9,true),
 (10,true),
-(11,false),
-(12,false);
+(11,false);
 INSERT INTO coaches(coachName,team) VALUES
 ("Jonathan Baywatch","Junior"),
 ("David Hasselhoff","Senior");

@@ -38,10 +38,13 @@ public class CoachController {
                     System.out.println("\n");
                     break;
                 case 4:
-                    rs.showTopFiveByDiscipline(sc.nextLine());
+                    ui.showDisciplineInputMessage();
+                    rs.showTopFiveJuniorByDiscipline(sc.nextLine());
                     System.out.println("\n");
                     break;
                 case 5:
+                    ui.showDisciplineInputMessage();
+                    rs.showTopFiveSeniorByDiscipline(sc.nextLine());
                     System.out.println("\n");
                     break;
                 case 6:

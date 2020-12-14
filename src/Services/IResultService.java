@@ -14,5 +14,9 @@ public interface IResultService {
 
     public List<Result> getTopJuniorResultsByDiscipline(String discipline);
 
-    public void showTopFiveByDiscipline(String input);
+    public List<Result> getTopSeniorResultsByDiscipline(String discipline);
+
+    public void showTopFiveJuniorByDiscipline(String input);
+
+    public void showTopFiveSeniorByDiscipline(String input);
 }

@@ -14,6 +14,8 @@ public interface IUI {
 
     public void showCashierMenu();
 
+    public void showDisciplineInputMessage();
+
     public String setMemberName() throws WrongNameException;
 
     public int setMemberAge() throws InvalidAgeException;
