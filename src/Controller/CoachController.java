@@ -1,9 +1,12 @@
 package Controller;
 
+import Connector.*;
 import Domain.Result;
 import Services.*;
 import UI.*;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class CoachController {
@@ -11,6 +14,7 @@ public class CoachController {
     IMemberService ms = new MemberService();
     IResultService rs = new ResultService();
     ICoachService cs = new CoachService();
+    IDBConnector dbc = new DBConnector();
     Scanner sc = new Scanner(System.in);
     int choice = 0;
 
@@ -34,11 +38,10 @@ public class CoachController {
                     System.out.println("\n");
                     break;
                 case 4:
-                    rs.showTopFiveJuniorResultsCrawl();
+                    rs.showTopFiveByDiscipline(sc.nextLine());
                     System.out.println("\n");
                     break;
                 case 5:
-                    rs.showTopFiveSeniorResultsCrawl();
                     System.out.println("\n");
                     break;
                 case 6:
