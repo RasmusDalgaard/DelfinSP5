@@ -1,5 +1,8 @@
 package UI;
 
+import Exceptions.InvalidAgeException;
+import Exceptions.InvalidNumberException;
+import Exceptions.WrongNameException;
 import Services.IMemberService;
 import Services.MemberService;
 
@@ -40,29 +43,39 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public String setMemberName() {
+    public String setMemberName() throws WrongNameException {
         String name = "";
         System.out.println("Enter member name: ");
         name = sc.nextLine();
-        //Exception missing
+        if (name == null || name.equals("") || !name.matches("^[a-zA-Z]*$")) {
+            throw new WrongNameException();
+        }
         return name;
     }
 
     //MemberService
-    public int setMemberAge() {
+    public int setMemberAge() throws InvalidAgeException {
         int age = 0;
         System.out.println("Enter member age: ");
-        age = sc.nextInt();
+        if (sc.hasNextInt()) {
+            age = sc.nextInt();
+        } else {
+            throw new InvalidAgeException();
+        }
         return age;
     }
 
     //MemberService
-    public boolean setMemberStatus() {
+    public boolean setMemberStatus() throws InvalidNumberException {
         boolean status = false;
         int choice = 0;
         System.out.println("Set membership status: ");
         System.out.println("(1) Active / (2) Passive");
-        choice = sc.nextInt();
+        if (sc.hasNextInt()) {
+            choice = sc.nextInt();
+        } else {
+            throw new InvalidNumberException();
+        }
         switch (choice) {
             case 1:
                 status = true;
@@ -75,13 +88,17 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public boolean setMemberCompetitive() {
+    public boolean setMemberCompetitive() throws InvalidNumberException {
         boolean competitionStatus = false;
         int choice = 0;
         System.out.println("Set membership competition status: ");
         System.out.println("(1) Competitive / (2) Exercise");
         System.out.println("Note! If you are a passive member you will automatically be put as exercise");
-        choice = sc.nextInt();
+        if (sc.hasNextInt()) {
+            choice = sc.nextInt();
+        } else {
+            throw new InvalidNumberException();
+        }
         switch (choice) {
             case 1:
                 competitionStatus = true;

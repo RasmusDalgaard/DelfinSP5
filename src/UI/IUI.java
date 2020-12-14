@@ -1,5 +1,9 @@
 package UI;
 
+import Exceptions.InvalidAgeException;
+import Exceptions.InvalidNumberException;
+import Exceptions.WrongNameException;
+
 public interface IUI {
 
     public void showUserMenu();
@@ -10,13 +14,13 @@ public interface IUI {
 
     public void showCashierMenu();
 
-    public String setMemberName();
+    public String setMemberName() throws WrongNameException;
 
-    public int setMemberAge();
+    public int setMemberAge() throws InvalidAgeException;
 
-    public boolean setMemberStatus();
+    public boolean setMemberStatus() throws InvalidNumberException;
 
-    public boolean setMemberCompetitive();
+    public boolean setMemberCompetitive() throws InvalidNumberException;
 
     public void printExitMessage();
 

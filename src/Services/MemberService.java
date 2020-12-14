@@ -3,6 +3,9 @@ package Services;
 import Connector.DBConnector;
 import Connector.IDBConnector;
 import Domain.*;
+import Exceptions.InvalidAgeException;
+import Exceptions.InvalidNumberException;
+import Exceptions.WrongNameException;
 import UI.*;
 
 import java.sql.*;
@@ -13,13 +16,35 @@ public class MemberService implements IMemberService {
     IDBConnector dbc = new DBConnector();
     IUI ui = new UI();
 
+    String memberName;
+    int age;
+    boolean membershipStatus;
+    boolean competitive;
+
     //int memberID, String memberName, int age, boolean membershipStatus, double membershipPrice, boolean competetive
     public void addMember() {
         Member member = new Member();
-        String memberName = ui.setMemberName();
-        int age = ui.setMemberAge();
-        boolean membershipStatus = ui.setMemberStatus();
-        boolean competitive = ui.setMemberCompetitive();
+        while (memberName == null) {
+            try {
+                memberName = ui.setMemberName();
+            } catch (WrongNameException nameException) {
+                nameException.printErrorMessager();
+            }
+        }
+
+            try {
+                age = ui.setMemberAge();
+            } catch (InvalidAgeException ageException) {
+                ageException.printErrorMessage();
+            }
+
+            try {
+                membershipStatus = ui.setMemberStatus();
+                competitive = ui.setMemberCompetitive();
+            } catch (InvalidNumberException numberException) {
+                numberException.printErrorMessage();
+            }
+
         member.setMemberName(memberName);
         member.setAge(age);
         member.setMembershipStatus(membershipStatus);
