@@ -3,7 +3,6 @@ package Services;
 import Connector.DBConnector;
 import Connector.IDBConnector;
 import Domain.*;
-import Exceptions.InvalidAgeException;
 import Exceptions.InvalidNumberException;
 import Exceptions.WrongNameException;
 import UI.*;
@@ -32,18 +31,14 @@ public class MemberService implements IMemberService {
             }
         }
 
-            try {
-                age = ui.setMemberAge();
-            } catch (InvalidAgeException ageException) {
-                ageException.printErrorMessage();
-            }
+        age = ui.setMemberAge();
 
-            try {
-                membershipStatus = ui.setMemberStatus();
-                competitive = ui.setMemberCompetitive();
-            } catch (InvalidNumberException numberException) {
-                numberException.printErrorMessage();
-            }
+        try {
+            membershipStatus = ui.setMemberStatus();
+            competitive = ui.setMemberCompetitive();
+        } catch (InvalidNumberException numberException) {
+            numberException.printErrorMessage();
+        }
 
         member.setMemberName(memberName);
         member.setAge(age);

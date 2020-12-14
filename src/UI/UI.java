@@ -1,14 +1,10 @@
 package UI;
 
-import Exceptions.InvalidAgeException;
 import Exceptions.InvalidNumberException;
 import Exceptions.WrongNameException;
-import Services.IMemberService;
-import Services.MemberService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import Domain.*;
 
 public class UI implements IUI {
     Scanner sc = new Scanner(System.in);
@@ -58,14 +54,21 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public int setMemberAge() throws InvalidAgeException {
+    public int setMemberAge()  {
         int age = 0;
         System.out.println("Enter member age: ");
-        if (sc.hasNextInt()) {
+        try {
             age = sc.nextInt();
-        } else {
-            throw new InvalidAgeException();
+            if (age < 6) {
+                System.out.println("Children with the age of 6 years or less get in for free");
+                setMemberAge();
+            }
+        } catch (InputMismatchException e) {
+            sc.next();
+            System.out.println("Please enter a valid age");
+            setMemberAge();
         }
+
         return age;
     }
 
