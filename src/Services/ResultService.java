@@ -85,7 +85,6 @@ public class ResultService implements IResultService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return juniorTopFiveResultsCrawl;
     }
 

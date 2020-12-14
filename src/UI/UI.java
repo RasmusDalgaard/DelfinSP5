@@ -97,7 +97,7 @@ public class UI implements IUI {
         String spacing = " ";
         spacing = spacing.repeat(length - word.length());
         word = word + spacing;
-        return  word;
+        return word;
     }
 
     public void printExitMessage() {

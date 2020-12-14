@@ -47,7 +47,34 @@ INSERT INTO results (memberID,compName,competitionDate,timeRes,discipline) VALUE
 (8,"LuffeCup",now(),85750,"Crawl"),
 (9,"LuffeCup",now(),79850,"Crawl"),
 (10,"LuffeCup",now(),85000,"Crawl"),
-(11,"LuffeCup",now(),97000,"Crawl");
+(11,"LuffeCup",now(),97000,"Crawl"),
+(1,"LuffeCup",now(),60000,"Butterfly"),
+(2,"LuffeCup",now(),57000,"Butterfly"),
+(3,"LuffeCup",now(),71000,"Butterfly"),
+(4,"LuffeCup",now(),70000,"Butterfly"),
+(6,"LuffeCup",now(),59000,"Butterfly"),
+(8,"LuffeCup",now(),72500,"Butterfly"),
+(9,"LuffeCup",now(),55000,"Butterfly"),
+(11,"LuffeCup",now(),54000,"Butterfly"),
+(1,"LuffeCup",now(),75000,"Backcrawl"),
+(2,"LuffeCup",now(),61000,"Backcrawl"),
+(3,"LuffeCup",now(),90000,"Backcrawl"),
+(4,"LuffeCup",now(),100000,"Backcrawl"),
+(5,"LuffeCup",now(),99000,"Backcrawl"),
+(6,"LuffeCup",now(),76000,"Backcrawl"),
+(7,"LuffeCup",now(),70000,"Backcrawl"),
+(9,"LuffeCup",now(),89850,"Backcrawl"),
+(10,"LuffeCup",now(),105000,"Backcrawl"),
+(11,"LuffeCup",now(),97700,"Backcrawl"),
+(1,"LuffeCup",now(),150000,"Breaststroke"),
+(3,"LuffeCup",now(),163000,"Breaststroke"),
+(4,"LuffeCup",now(),125000,"Breaststroke"),
+(5,"LuffeCup",now(),145000,"Breaststroke"),
+(7,"LuffeCup",now(),148500,"Breaststroke"),
+(8,"LuffeCup",now(),142000,"Breaststroke"),
+(9,"LuffeCup",now(),117000,"Breaststroke"),
+(10,"LuffeCup",now(),135000,"Breaststroke"),
+(11,"LuffeCup",now(),157500,"Breaststroke");
 INSERT INTO payment (memberID,hasPaid) VALUES
 (1,true),
 (2,false),
@@ -67,7 +94,7 @@ INSERT INTO coaches(coachName,team) VALUES
 
 /*Select Statements */
 SELECT * FROM members;
-SELECT * FROM results;
+SELECT * FROM results ORDER by memberID;
 SELECT * FROM payment;
 SELECT * FROM coaches;
 SELECT * FROM members WHERE age < 18 AND competitive = true;
