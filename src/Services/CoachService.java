@@ -43,7 +43,7 @@ public class CoachService implements ICoachService {
 
     public void showAllCoaches() {
         for (Coach c : getAllCoaches()) {
-            System.out.println(c + " Team: " + c.getTeam());
+            System.out.println(c);
         }
     }
 
@@ -51,7 +51,7 @@ public class CoachService implements ICoachService {
     public void showJuniorCoaches() {
         for (Coach c : getAllCoaches()) {
             if (c.getTeam().equals("Junior")) {
-                System.out.println("Coach: " + c);
+                System.out.println(c);
             }
         }
     }
@@ -59,7 +59,7 @@ public class CoachService implements ICoachService {
     public void showSeniorCoaches() {
         for (Coach c : getAllCoaches()) {
             if (c.getTeam().equals("Senior")) {
-                System.out.println("Coach: " + c);
+                System.out.println(c);
             }
         }
     }
