@@ -95,7 +95,7 @@ public class ResultService implements IResultService {
 
     public void showTopFiveJuniorByDiscipline(String input) {
         input = sc.nextLine();
-        if (input != null && input != "" && !input.matches(("(?i)Crawl|Butterfly|Backcrawl|Breaststroke"))) {
+        if (input != null && input != "" && !input.matches(("Crawl|Butterfly|Backcrawl|Breaststroke"))) {
             throw new InputMismatchException();
         } else {
             for (Result res : getTopJuniorResultsByDiscipline(input)) {
@@ -107,7 +107,7 @@ public class ResultService implements IResultService {
 
     public void showTopFiveSeniorByDiscipline(String input) {
         input = sc.nextLine();
-        if (input != null && input != "" && !input.matches(("(?i)Crawl|Butterfly|Backcrawl|Breaststroke"))) {
+        if (input != null && input != "" && !input.matches(("Crawl|Butterfly|Backcrawl|Breaststroke"))) {
             throw new InputMismatchException();
         } else {
             for (Result res : getTopSeniorResultsByDiscipline(input)) {

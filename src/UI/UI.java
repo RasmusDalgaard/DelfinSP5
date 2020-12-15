@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class UI implements IUI {
     Scanner sc = new Scanner(System.in);
 
-    //MainController
     public void showUserMenu() {
         System.out.println("1) Admin");
         System.out.println("2  Coach");
@@ -33,7 +32,7 @@ public class UI implements IUI {
     }
 
     public void showDisciplineInputMessage() {
-        System.out.println("Type the desired discipline (Butterfly, Crawl, Backcrawl, Breaststroke)");
+        System.out.println("Type the desired discipline (Butterfly, Crawl, Backcrawl, Breaststroke) Note! Case Sensitive");
     }
 
     public void showCashierMenu() {
@@ -41,7 +40,6 @@ public class UI implements IUI {
         System.out.println("4) Go back");
     }
 
-    //MemberService
     public String setMemberName() throws WrongNameException {
         String name = "";
         System.out.println("Enter member name: ");
@@ -58,7 +56,6 @@ public class UI implements IUI {
         return name;
     }
 
-    //MemberService
     public int setMemberAge() {
         int age = 0;
         System.out.println("Enter member age: ");
@@ -81,7 +78,6 @@ public class UI implements IUI {
         return age;
     }
 
-    //MemberService
     public boolean setMemberStatus() {
         boolean status = false;
         int choice = 0;
@@ -105,7 +101,6 @@ public class UI implements IUI {
         return status;
     }
 
-    //MemberService
     public boolean setMemberCompetitive() {
         boolean competitionStatus = false;
         int choice = 0;
