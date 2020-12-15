@@ -59,17 +59,17 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public int setMemberAge()  {
+    public int setMemberAge() {
         int age = 0;
         System.out.println("Enter member age: ");
         try {
             age = sc.nextInt();
-            if (age < 6) {
+            if (age <= 6) {
                 System.out.println("Children with the age of 6 years or less get in for free");
                 setMemberAge();
-            } else if (age < 0) {
+            } else if (age <= 0) {
                 System.out.println("Invalid age");
-            } else if (age < 100) {
+            } else if (age > 100) {
                 System.out.println("Too old for this Dolfin");
             }
         } catch (InputMismatchException e) {
@@ -82,7 +82,7 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public boolean setMemberStatus()  {
+    public boolean setMemberStatus() {
         boolean status = false;
         int choice = 0;
         System.out.println("Set membership status: ");
@@ -90,8 +90,8 @@ public class UI implements IUI {
         try {
             choice = sc.nextInt();
         } catch (InputMismatchException e) {
-            sc.next();
             System.out.println("Please enter a valid number");
+            sc.next();
             setMemberStatus();
         }
         switch (choice) {
