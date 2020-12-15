@@ -1,6 +1,5 @@
 package UI;
 
-import Exceptions.InvalidNumberException;
 import Exceptions.WrongNameException;
 
 import java.util.InputMismatchException;
@@ -28,8 +27,8 @@ public class UI implements IUI {
         System.out.println("1) Show Junior team");
         System.out.println("2) Show Senior team");
         System.out.println("3) Show all results");
-        System.out.println("4) Show top 5 Junior Crawl");
-        System.out.println("5) Show top 5 Senior Crawl");
+        System.out.println("4) Show top 5 Junior");
+        System.out.println("5) Show top 5 Senior");
         System.out.println("6) Go back");
     }
 
@@ -47,8 +46,14 @@ public class UI implements IUI {
         String name = "";
         System.out.println("Enter member name: ");
         name = sc.nextLine();
-        if (name == null || name.equals("") || !name.matches("^[a-zA-Z]*$")) {
-            throw new WrongNameException();
+        for (int i = 0; i < name.length(); i++) {
+            char currentChar = name.charAt(i);
+            if (name.contains(" ")) {
+                continue;
+            }
+            if (name == null || !(currentChar >= 'A' && currentChar <= 'Z') && !(currentChar >= 'a' && currentChar <= 'z')) {
+                throw new WrongNameException();
+            }
         }
         return name;
     }
@@ -62,6 +67,10 @@ public class UI implements IUI {
             if (age < 6) {
                 System.out.println("Children with the age of 6 years or less get in for free");
                 setMemberAge();
+            } else if (age < 0) {
+                System.out.println("Invalid age");
+            } else if (age < 100) {
+                System.out.println("Too old for this Dolfin");
             }
         } catch (InputMismatchException e) {
             sc.next();
@@ -73,15 +82,17 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public boolean setMemberStatus() throws InvalidNumberException {
+    public boolean setMemberStatus()  {
         boolean status = false;
         int choice = 0;
         System.out.println("Set membership status: ");
         System.out.println("(1) Active / (2) Passive");
-        if (sc.hasNextInt()) {
+        try {
             choice = sc.nextInt();
-        } else {
-            throw new InvalidNumberException();
+        } catch (InputMismatchException e) {
+            sc.next();
+            System.out.println("Please enter a valid number");
+            setMemberStatus();
         }
         switch (choice) {
             case 1:
@@ -95,16 +106,18 @@ public class UI implements IUI {
     }
 
     //MemberService
-    public boolean setMemberCompetitive() throws InvalidNumberException {
+    public boolean setMemberCompetitive() {
         boolean competitionStatus = false;
         int choice = 0;
         System.out.println("Set membership competition status: ");
         System.out.println("(1) Competitive / (2) Exercise");
         System.out.println("Note! If you are a passive member you will automatically be put as exercise");
-        if (sc.hasNextInt()) {
+        try {
             choice = sc.nextInt();
-        } else {
-            throw new InvalidNumberException();
+        } catch (InputMismatchException e) {
+            sc.next();
+            System.out.println("Please enter a valid number");
+            setMemberCompetitive();
         }
         switch (choice) {
             case 1:

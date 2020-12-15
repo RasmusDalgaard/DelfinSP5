@@ -8,10 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ResultService implements IResultService {
     DBConnector dbc = new DBConnector();
@@ -98,15 +95,24 @@ public class ResultService implements IResultService {
 
     public void showTopFiveJuniorByDiscipline(String input) {
         input = sc.nextLine();
-        for (Result res : getTopJuniorResultsByDiscipline(input)) {
-            System.out.println(res);
+        if (input != null && input != "" && !input.matches(("(?i)Crawl|Butterfly|Backcrawl|Breaststroke"))) {
+            throw new InputMismatchException();
+        } else {
+            for (Result res : getTopJuniorResultsByDiscipline(input)) {
+                System.out.println(res);
+            }
         }
     }
 
+
     public void showTopFiveSeniorByDiscipline(String input) {
         input = sc.nextLine();
-        for (Result res : getTopSeniorResultsByDiscipline(input)) {
-            System.out.println(res);
+        if (input != null && input != "" && !input.matches(("(?i)Crawl|Butterfly|Backcrawl|Breaststroke"))) {
+            throw new InputMismatchException();
+        } else {
+            for (Result res : getTopSeniorResultsByDiscipline(input)) {
+                System.out.println(res);
+            }
         }
     }
 }

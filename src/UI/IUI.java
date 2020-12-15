@@ -1,6 +1,5 @@
 package UI;
 
-import Exceptions.InvalidNumberException;
 import Exceptions.WrongNameException;
 
 public interface IUI {
@@ -19,9 +18,9 @@ public interface IUI {
 
     public int setMemberAge();
 
-    public boolean setMemberStatus() throws InvalidNumberException;
+    public boolean setMemberStatus();
 
-    public boolean setMemberCompetitive() throws InvalidNumberException;
+    public boolean setMemberCompetitive();
 
     public void printExitMessage();
 

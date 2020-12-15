@@ -3,7 +3,6 @@ package Services;
 import Connector.DBConnector;
 import Connector.IDBConnector;
 import Domain.*;
-import Exceptions.InvalidNumberException;
 import Exceptions.WrongNameException;
 import UI.*;
 
@@ -32,13 +31,9 @@ public class MemberService implements IMemberService {
         }
 
         age = ui.setMemberAge();
+        membershipStatus = ui.setMemberStatus();
+        competitive = ui.setMemberCompetitive();
 
-        try {
-            membershipStatus = ui.setMemberStatus();
-            competitive = ui.setMemberCompetitive();
-        } catch (InvalidNumberException numberException) {
-            numberException.printErrorMessage();
-        }
 
         member.setMemberName(memberName);
         member.setAge(age);

@@ -6,6 +6,7 @@ import Services.*;
 import UI.*;
 
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,12 +40,22 @@ public class CoachController {
                     break;
                 case 4:
                     ui.showDisciplineInputMessage();
-                    rs.showTopFiveJuniorByDiscipline(sc.nextLine());
+                    try {
+                        rs.showTopFiveJuniorByDiscipline(sc.nextLine());
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid discipline");
+                        choice = 4;
+                    }
                     System.out.println("\n");
                     break;
                 case 5:
                     ui.showDisciplineInputMessage();
-                    rs.showTopFiveSeniorByDiscipline(sc.nextLine());
+                    try {
+                        rs.showTopFiveSeniorByDiscipline(sc.nextLine());
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("Invalid discipline");
+                        choice = 5;
+                    }
                     System.out.println("\n");
                     break;
                 case 6:
